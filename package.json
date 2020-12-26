@@ -1,0 +1,41 @@
+{
+  "name": "thedonothingpage",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Just a website to use as a lab",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server-spa . ./index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omarefg/thedonothingpage.git"
+  },
+  "keywords": [
+    "react",
+    "angular",
+    "vue",
+    "vanilla",
+    "course",
+    "lab",
+    "webdevelopment",
+    "web",
+    "development"
+  ],
+  "author": "Omar Flores <dev@omarefg.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/omarefg/thedonothingpage/issues"
+  },
+  "homepage": "https://github.com/omarefg/thedonothingpage#readme",
+  "devDependencies": {
+    "eslint": "7.16.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "http-server-spa": "1.3.0"
+  }
+}
