@@ -28,10 +28,7 @@ export default class Router {
     return this.routes.find(({ path }) => path() === url);
   }
 
-  goTo({
-    url,
-    useReplace,
-  }) {
+  goTo({ url, useReplace }) {
     const matchedRoute = this.getMatchedRoute(url);
     if (useReplace) {
       window.history.replaceState({}, '', url);

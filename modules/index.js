@@ -1,3 +1,3 @@
-export * from './root/root.js';
-export * from './final-html-and-css-course/finalHtmlAndCssCourse.js';
-export * from './final-html-and-css-course/frontend/frontend.js';
+export * from './root/Root.js';
+export * from './finalHtmlAndCssCourse/FinalHtmlAndCssCourse.js';
+export * from './finalHtmlAndCssCourse/fundamentals/FinalHtmlAndCssCourseFundamentals.js';

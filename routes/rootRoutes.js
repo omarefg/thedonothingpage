@@ -1,24 +1,24 @@
-import { createRoot, createFinalHtmlAndCssCourse } from '../modules/index.js';
+import { Root, FinalHtmlAndCssCourse } from '../modules/index.js';
 
 const modulesPath = () => '/';
-const MODULES_TITLE = 'Modules';
+const modulesTitle = 'Modules';
 
-const finalHtmlAndCssCoursePath = () => '/final-html-and-css-course';
-const FINAL_HTML_AND_CSS_COURSE_TITLE = 'Curso definitivo de HTML y CSS';
+const finalHtmlAndCssCoursePath = () => '/curso-definitivo-de-html-y-css';
+const finalHtmlAndCssCourseTitle = 'Curso definitivo de HTML y CSS';
 
 const rootRoutes = [
   {
     path: modulesPath,
-    title: MODULES_TITLE,
+    title: modulesTitle,
     father: null,
-    element: createRoot,
+    element: Root,
     id: '0',
   },
   {
     path: finalHtmlAndCssCoursePath,
-    title: FINAL_HTML_AND_CSS_COURSE_TITLE,
+    title: finalHtmlAndCssCourseTitle,
     father: '0',
-    element: createFinalHtmlAndCssCourse,
+    element: FinalHtmlAndCssCourse,
     id: '1',
   },
 ];

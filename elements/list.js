@@ -1,12 +1,12 @@
-import { createLink } from './link.js';
+import { Link } from './Link.js';
 
-export const createList = ({ data, onItemClick }) => {
+export function List({ data, onItemClick }) {
   const ul = document.createElement('ul');
   data.forEach(({ title, path }) => {
-    ul.appendChild(createLink({
+    ul.appendChild(Link({
       title,
       onClick: () => onItemClick(path),
     }));
   });
   return ul;
-};
+}
