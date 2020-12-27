@@ -1,21 +1,42 @@
+import routes from './routes.js';
+
 export default class Router {
-  constructor(routes) {
+  constructor() {
     this.routes = routes;
-    this.loadInitialRoute();
+    this.instance = null;
+
+    window.addEventListener('popstate', () => {
+      this.paintCurrentRoute();
+    });
   }
 
-  loadInitialRoute() {
-    this.loadRoute(window.location.pathname);
+  static getInstance() {
+    if (!this.instance) {
+      this.instance = new Router();
+    }
+    return this.instance;
   }
 
-  matchUrlToRoute(url) {
-    return this.routes.find(({ path }) => path === url);
+  paintCurrentRoute() {
+    this.goTo(window.location.pathname);
   }
 
-  loadRoute(url) {
-    const matchedRoute = this.matchUrlToRoute(url);
+  getMatchedRoute(url) {
+    return this.routes.find(({ path }) => path() === url);
+  }
+
+  goTo(url) {
+    const matchedRoute = this.getMatchedRoute(url);
     window.history.pushState({}, '', url);
-    const routerOutElement = document.querySelectorAll('[data-router]')[0];
-    routerOutElement.innerHTML = matchedRoute.template;
+    const app = document.querySelector('[data-app]');
+    app.innerHTML = '';
+    app.appendChild(matchedRoute.element({
+      router: this,
+      routeId: matchedRoute.id,
+    }));
+  }
+
+  get getRoutes() {
+    return this.routes;
   }
 }
