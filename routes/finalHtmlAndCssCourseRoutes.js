@@ -1,15 +1,15 @@
-import { createFinalHtmlAndCssCourse } from '../modules/index.js';
+import { createFrontend } from '../modules/index.js';
 
-export const finalHtmlAndCssCoursePath = () => '/final-html-and-css-course';
-export const FINAL_HTML_AND_CSS_COURSE_TITLE = 'Curso definitivo de HTML y CSS';
+export const frontendPath = () => '/final-html-and-css-course/que-hace-un-front';
+export const FRONTEND_TITLE = '¿Qué hace un front?';
 
 const finalHtmlAndCssCourseRoutes = [
   {
-    path: finalHtmlAndCssCoursePath,
-    title: FINAL_HTML_AND_CSS_COURSE_TITLE,
-    father: '0',
-    element: createFinalHtmlAndCssCourse,
-    id: '1',
+    path: frontendPath,
+    title: FRONTEND_TITLE,
+    father: '1',
+    element: createFrontend,
+    id: '2',
   },
 ];
 

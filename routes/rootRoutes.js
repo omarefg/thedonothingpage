@@ -1,7 +1,10 @@
-import { createRoot } from '../modules/index.js';
+import { createRoot, createFinalHtmlAndCssCourse } from '../modules/index.js';
 
-export const modulesPath = () => '/';
-export const MODULES_TITLE = 'Modules';
+const modulesPath = () => '/';
+const MODULES_TITLE = 'Modules';
+
+const finalHtmlAndCssCoursePath = () => '/final-html-and-css-course';
+const FINAL_HTML_AND_CSS_COURSE_TITLE = 'Curso definitivo de HTML y CSS';
 
 const rootRoutes = [
   {
@@ -10,6 +13,13 @@ const rootRoutes = [
     father: null,
     element: createRoot,
     id: '0',
+  },
+  {
+    path: finalHtmlAndCssCoursePath,
+    title: FINAL_HTML_AND_CSS_COURSE_TITLE,
+    father: '0',
+    element: createFinalHtmlAndCssCourse,
+    id: '1',
   },
 ];
 

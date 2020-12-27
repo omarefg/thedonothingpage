@@ -1,7 +1,11 @@
-export const createFinalHtmlAndCssCourse = () => {
+import { createList } from '../../elements/index.js';
+
+export const createFinalHtmlAndCssCourse = ({ router, routeId }) => {
   const main = document.createElement('main');
-  const h1 = document.createElement('h1');
-  h1.innerText = 'Funciona!';
-  main.appendChild(h1);
+  const ul = createList({
+    data: router.getRoutes.filter((route) => route.father === routeId),
+    onItemClick: (path) => router.goTo({ url: path() }),
+  });
+  main.appendChild(ul);
   return main;
 };

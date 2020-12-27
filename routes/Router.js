@@ -6,7 +6,10 @@ export default class Router {
     this.instance = null;
 
     window.addEventListener('popstate', () => {
-      this.paintCurrentRoute();
+      this.goTo({
+        url: window.location.pathname,
+        useReplace: true,
+      });
     });
   }
 
@@ -18,16 +21,23 @@ export default class Router {
   }
 
   paintCurrentRoute() {
-    this.goTo(window.location.pathname);
+    this.goTo({ url: window.location.pathname });
   }
 
   getMatchedRoute(url) {
     return this.routes.find(({ path }) => path() === url);
   }
 
-  goTo(url) {
+  goTo({
+    url,
+    useReplace,
+  }) {
     const matchedRoute = this.getMatchedRoute(url);
-    window.history.pushState({}, '', url);
+    if (useReplace) {
+      window.history.replaceState({}, '', url);
+    } else {
+      window.history.pushState({}, '', url);
+    }
     const app = document.querySelector('[data-app]');
     app.innerHTML = '';
     app.appendChild(matchedRoute.element({
