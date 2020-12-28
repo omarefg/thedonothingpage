@@ -1,5 +1,5 @@
-import rootRoutes from './rootRoutes.js';
-import finalHtmlAndCssCourseRoutes from './finalHtmlAndCssCourseRoutes.js';
+import rootRoutes from './rootRoutes';
+import finalHtmlAndCssCourseRoutes from './finalHtmlAndCssCourseRoutes';
 
 export default [
   ...rootRoutes,

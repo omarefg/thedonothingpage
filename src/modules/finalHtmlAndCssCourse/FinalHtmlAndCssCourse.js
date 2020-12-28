@@ -1,10 +1,4 @@
-import { List } from '../../elements/index.js';
-
-export const FinalHtmlAndCssCourse = ({ router, routeId }) => {
+export const FinalHtmlAndCssCourse = () => {
   const main = document.createElement('main');
-  main.appendChild(List({
-    data: router.getRoutes.filter((route) => route.father === routeId),
-    onItemClick: (path) => router.goTo({ url: path() }),
-  }));
   return main;
 };

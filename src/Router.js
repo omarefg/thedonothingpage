@@ -1,21 +1,17 @@
-import routes from './routes.js';
+import { SideBar } from './components';
+import routes from './routes/routes';
 
 export default class Router {
   constructor() {
     this.routes = routes;
     this.instance = null;
-    this.sidebar = document.createElement('nav');
+    this.sidebar = SideBar({ router: this, routes });
     this.content = document.createElement('main');
     this.app = document.querySelector('[data-app]');
     this.app.appendChild(this.sidebar);
     this.app.appendChild(this.content);
 
-    window.addEventListener('popstate', () => {
-      this.goTo({
-        url: window.location.pathname,
-        useReplace: true,
-      });
-    });
+    window.addEventListener('popstate', () => this.paintCurrentPage(true));
   }
 
   static getInstance() {
@@ -25,8 +21,8 @@ export default class Router {
     return this.instance;
   }
 
-  paintCurrentRoute() {
-    this.goTo({ url: window.location.pathname });
+  paintCurrentPage(useReplace = false) {
+    this.goTo({ url: window.location.pathname, useReplace });
   }
 
   getMatchedRoute(url) {
@@ -45,6 +41,7 @@ export default class Router {
     const element = matchedRoute.element({
       router: this,
       routeId: matchedRoute.id,
+      main: this.content,
     });
 
     if (typeof element === 'string') {

@@ -1,4 +1,4 @@
-import { FinalHtmlAndCssCourseFundamentals, FinalHtmlAndCssCourseHtml } from '../modules/index';
+import { FinalHtmlAndCssCourseFundamentals, FinalHtmlAndCssCourseHtml } from '../modules';
 
 export const fundamentalsPath = () => '/curso-definitivo-de-html-y-css/fundamentos';
 export const fundamentalsTitle = 'Fundamentos';

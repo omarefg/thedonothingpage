@@ -1,4 +1,4 @@
-import { Topic } from './elements/index.js';
+import { Topic } from './components';
 
 function addSection({
   title,
@@ -37,7 +37,7 @@ function addSection({
 }
 
 export function FinalHtmlAndCssCourseFundamentals() {
-  const main = document.createElement('main');
+  const main = document.createElement('div');
   addSection({
     title: '¿Qué hace un Frontend?',
     rootElement: main,

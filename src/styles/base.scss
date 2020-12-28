@@ -1,0 +1,31 @@
+[data-app] {
+    display: flex;
+}
+
+html {
+    font-size: $fontSizeBase;
+}
+
+body {
+    background-color: $colorBgMain;
+}
+
+body, html, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $fontFamilyBase;
+    font-weight: $fontWeightRegular;
+}
+
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+}

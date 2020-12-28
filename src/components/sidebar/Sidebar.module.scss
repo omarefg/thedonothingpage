@@ -1,0 +1,18 @@
+.container {
+    width: $sidebarWidth;
+}
+
+.hide {
+    transform: translateX(-$sidebarWidth);
+    transition: 0.25s
+}
+
+.show {
+    transform: translateX(0px);
+    transition: 0.25s
+}
+
+.homeLinkContainer {
+    display: flex;
+    align-items: center;
+}

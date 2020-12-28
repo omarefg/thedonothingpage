@@ -31,9 +31,41 @@ module.exports = {
         test: /\.(s*)css$/,
         use: [
           'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `
+                    @import "${resolve(__dirname, 'src/styles/index.scss')}";
+                `,
+            },
+          },
+        ],
+        include: /\.module\.(s*)css$/,
+      },
+      {
+        test: /\.(s*)css$/,
+        use: [
+          'style-loader',
           'css-loader',
           'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `
+                    @import "${resolve(__dirname, 'src/styles/index.scss')}";
+                `,
+            },
+          },
         ],
+        exclude: /\.module\.(s*)css$/,
       },
       {
         test: /\.jpg|png|gif|woff|woff2|eot|ttf|svg|mp4|webm$/,

@@ -27,11 +27,42 @@ module.exports = {
       {
         test: /\.(s*)css$/,
         use: [
+          'style-loader',
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
           },
-          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `
+                    @import "${resolve(__dirname, 'src/styles/index.scss')}";
+                `,
+            },
+          },
         ],
+        include: /\.module\.(s*)css$/,
+      },
+      {
+        test: /\.(s*)css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `
+                    @import "${resolve(__dirname, 'src/styles/index.scss')}";
+                `,
+            },
+          },
+        ],
+        exclude: /\.module\.(s*)css$/,
       },
       {
         test: /\.(png|gif|jpg|jpeg|webp|ttf|eot|woff|woff2|svg)$/,

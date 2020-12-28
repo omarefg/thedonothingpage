@@ -1,4 +1,4 @@
-import { Root, FinalHtmlAndCssCourse } from '../modules/index';
+import { Root, FinalHtmlAndCssCourse } from '../modules';
 
 const modulesPath = () => '/';
 const modulesTitle = 'Modules';

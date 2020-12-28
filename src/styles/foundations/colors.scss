@@ -1,0 +1,42 @@
+$colorPrimaryDark: #003572;
+$colorPrimaryMain: #0066ff;
+$colorSecondaryDark: #72b2d4;
+$colorSecondaryMain: #b5e2fa;
+$colorFontDark: #1d1d1d;
+$colorFontMain: #303030;
+$colorFontDarkGray: #747581;
+$colorFontLight: #fafafa;
+$colorFontDisabled: #777777;
+$colorBgDark: #383a40;
+$colorBgMain: #fefefe;
+$colorBgDisabled: #aeaeae;
+$colorBoxShadowLight: #a8a8a8;
+$colorError: #d23737;
+$colorSuccess: #287D37;
+$colorWarning: #ffc914;
+$colorTransparency: #0000001a;
+$colorLightBlue: #ADBCFF;
+
+@function getTransparency($transparency) {
+  @return rgba(0,0,0,$transparency)
+}
+
+:export {
+  colorPrimaryDark: $colorPrimaryDark;
+  colorPrimaryMain: $colorPrimaryMain;
+  colorSecondaryDark: $colorSecondaryDark;
+  colorSecondaryMain: $colorSecondaryMain;
+  colorFontDark: $colorFontDark;
+  colorFontMain: $colorFontMain;
+  colorFontDarkGray: $colorFontDarkGray;
+  colorFontLight: $colorFontLight;
+  colorFontDisabled: $colorFontDisabled;
+  colorBgDark: $colorBgDark;
+  colorBgMain: $colorBgMain;
+  colorBgDisabled: $colorBgDisabled;
+  colorBoxShadowLight: $colorBoxShadowLight;
+  colorError: $colorError;
+  colorSuccess: $colorSuccess;
+  colorWarning: $colorWarning;
+  colorTransparency: $colorTransparency;
+}

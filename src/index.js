@@ -1,6 +1,3 @@
-import './index.css';
-import Router from './routes/Router';
+import Router from './Router';
 
-const router = Router.getInstance();
-
-router.paintCurrentRoute();
+Router.getInstance().paintCurrentPage();
