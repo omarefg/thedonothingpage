@@ -1,0 +1,5 @@
+$transitionUnit: 0.25;
+
+@function getTransitionTiming($times: 1) {
+  @return #{$transitionUnit * $times}s;
+}

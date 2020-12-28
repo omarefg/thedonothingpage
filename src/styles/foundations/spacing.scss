@@ -1,20 +1,8 @@
 $spacingUnit: 10px;
 
-@function getSpacing($times) {
+@function getSpacing($times: 1) {
   @return $spacingUnit * $times;
 }
 
 $sideBarWidth: getSpacing(25);
 $mainContentWidth: calc(100vw - #{$sideBarWidth});
-
-@mixin flex ($direction: rows, $horizontal: center, $vertical: center) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $horizontal;
-  align-items: $vertical;
-}
-
-@mixin paddingAndMargin($multiPadding: 1, $multiMarging: 1) {
-  margin: $sskSpacingUnit * $multiPadding;
-  padding: $sskSpacingUnit * $multiMarging;
-}

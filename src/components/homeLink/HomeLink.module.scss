@@ -1,4 +1,7 @@
 .homeLinkContainer {
     display: flex;
     align-items: center;
+    margin: getSpacing(2) 0;
+    cursor: pointer;
+    justify-content: center;
 }

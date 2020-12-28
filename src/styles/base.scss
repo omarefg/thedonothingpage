@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: $colorBgMain;
+    background-color: $colorWhite;
 }
 
 body, html, * {
@@ -17,11 +17,6 @@ body {
     font-weight: $fontWeightRegular;
 }
 
-select {
-    -webkit-appearance: none;
-    appearance: none;
-    outline: none;
-    cursor: pointer;
-    border: none;
-    background: none;
+details summary::-webkit-details-marker {
+    display:none;
 }
