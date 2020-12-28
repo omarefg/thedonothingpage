@@ -21,4 +21,14 @@ module.exports = {
     'import/prefer-default-export': 0,
     'import/extensions': 0,
   },
+  settings: {
+    'import/core-modules': [
+      'webpack',
+      'html-webpack-plugin',
+      'autoprefixer',
+      'terser-webpack-plugin',
+      'optimize-css-assets-webpack-plugin',
+      'favicons-webpack-plugin',
+    ],
+  },
 };

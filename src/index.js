@@ -1,4 +1,5 @@
-import Router from './routes/Router.js';
+import './index.css';
+import Router from './routes/Router';
 
 const router = Router.getInstance();
 

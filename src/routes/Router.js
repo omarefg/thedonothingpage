@@ -4,6 +4,11 @@ export default class Router {
   constructor() {
     this.routes = routes;
     this.instance = null;
+    this.sidebar = document.createElement('nav');
+    this.content = document.createElement('main');
+    this.app = document.querySelector('[data-app]');
+    this.app.appendChild(this.sidebar);
+    this.app.appendChild(this.content);
 
     window.addEventListener('popstate', () => {
       this.goTo({
@@ -35,12 +40,19 @@ export default class Router {
     } else {
       window.history.pushState({}, '', url);
     }
-    const app = document.querySelector('[data-app]');
-    app.innerHTML = '';
-    app.appendChild(matchedRoute.element({
+    this.content.innerHTML = '';
+
+    const element = matchedRoute.element({
       router: this,
       routeId: matchedRoute.id,
-    }));
+    });
+
+    if (typeof element === 'string') {
+      this.content.innerHTML = element;
+      return;
+    }
+
+    this.content.appendChild(element);
   }
 
   get getRoutes() {
