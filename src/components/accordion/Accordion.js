@@ -1,11 +1,14 @@
+import { Component } from '../../decorators';
 import { Link } from '../link/Link';
 
-export function Accordion({ title, children, onChildClick }) {
+function AccordionComponent(props) {
   const container = document.createElement('details');
   const summary = document.createElement('summary');
   const linksContainer = document.createElement('ul');
+  const { title, children, onChildClick } = this.getProps(props, this.defaultProps);
   summary.innerText = title;
   container.appendChild(summary);
+
   children.forEach(({ title: childrenTitle, path }) => {
     const li = document.createElement('li');
     li.appendChild(Link({
@@ -17,3 +20,11 @@ export function Accordion({ title, children, onChildClick }) {
   container.appendChild(linksContainer);
   return container;
 }
+
+export const Accordion = new Component(AccordionComponent, {
+  defaultProps: {
+    title: '',
+    children: [],
+    onChildClick: () => {},
+  },
+});

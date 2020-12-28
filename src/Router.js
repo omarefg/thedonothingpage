@@ -1,4 +1,4 @@
-import { SideBar } from './components';
+import { SideBar, MainContent } from './components';
 import routes from './routes/routes';
 
 export default class Router {
@@ -6,12 +6,12 @@ export default class Router {
     this.routes = routes;
     this.instance = null;
     this.sidebar = SideBar({ router: this, routes });
-    this.content = document.createElement('main');
+    this.content = MainContent();
     this.app = document.querySelector('[data-app]');
     this.app.appendChild(this.sidebar);
     this.app.appendChild(this.content);
 
-    window.addEventListener('popstate', () => this.paintCurrentPage(true));
+    window.addEventListener('popstate', () => this.paintCurrentPage({ useReplace: true, forceUpdate: true }));
   }
 
   static getInstance() {
@@ -21,35 +21,37 @@ export default class Router {
     return this.instance;
   }
 
-  paintCurrentPage(useReplace = false) {
-    this.goTo({ url: window.location.pathname, useReplace });
+  paintCurrentPage({ useReplace, forceUpdate }) {
+    this.goTo({ url: window.location.pathname, useReplace, forceUpdate });
   }
 
   getMatchedRoute(url) {
     return this.routes.find(({ path }) => path() === url);
   }
 
-  goTo({ url, useReplace }) {
-    const matchedRoute = this.getMatchedRoute(url);
-    if (useReplace) {
-      window.history.replaceState({}, '', url);
-    } else {
-      window.history.pushState({}, '', url);
+  goTo({ url, useReplace, forceUpdate }) {
+    if (url !== window.location.pathname || forceUpdate) {
+      const matchedRoute = this.getMatchedRoute(url);
+      if (useReplace) {
+        window.history.replaceState({}, '', url);
+      } else {
+        window.history.pushState({}, '', url);
+      }
+      this.content.innerHTML = '';
+
+      const element = matchedRoute.element({
+        router: this,
+        routeId: matchedRoute.id,
+        main: this.content,
+      });
+
+      if (typeof element === 'string') {
+        this.content.innerHTML = element;
+        return;
+      }
+
+      this.content.appendChild(element);
     }
-    this.content.innerHTML = '';
-
-    const element = matchedRoute.element({
-      router: this,
-      routeId: matchedRoute.id,
-      main: this.content,
-    });
-
-    if (typeof element === 'string') {
-      this.content.innerHTML = element;
-      return;
-    }
-
-    this.content.appendChild(element);
   }
 
   get getRoutes() {

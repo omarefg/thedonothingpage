@@ -4,12 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
+const host = 'localhost';
+const port = 8080;
+
 module.exports = {
   entry: resolve(__dirname, 'src/index.js'),
   output: {
     path: resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
-    publicPath: 'http://localhost:8080/',
+    publicPath: `http://${host}:${port}/`,
     chunkFilename: 'js/[id].[chunkhash].js',
   },
   resolve: {

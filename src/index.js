@@ -1,3 +1,3 @@
 import Router from './Router';
 
-Router.getInstance().paintCurrentPage();
+Router.getInstance().paintCurrentPage({ forceUpdate: true });

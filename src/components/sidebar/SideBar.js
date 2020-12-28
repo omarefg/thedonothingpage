@@ -1,32 +1,14 @@
+import { Component } from '../../decorators';
 import { Accordion } from '../accordion/Accordion';
-import { Link } from '../link/Link';
-import Logo from '../../assets/logo.png';
+import { HomeLink } from '../homeLink/HomeLink';
+import { Icon } from '../icon/Icon';
 import styles from './Sidebar.module.scss';
 
-function HomeLink({ router }) {
-  const container = document.createElement('div');
-  container.classList.add(styles.homeLinkContainer);
-  const logo = document.createElement('img');
-  const title = document.createElement('code');
-  const link = Link({ onClick: () => router.goTo({ url: '/' }), children: container });
-  logo.src = Logo;
-  logo.width = 48;
-  title.innerText = 'The do nothing page';
-  container.appendChild(logo);
-  container.appendChild(title);
-  return link;
-}
+const breakpointNumber = Number(styles.breakpointMedium.replace('px', ''));
 
-export function SideBar({ routes, router }) {
-  const container = document.createElement('nav');
-  container.classList.add(styles.container);
-  const firstLevel = routes.filter(({ father }) => father !== null && father === '0');
-  const children = routes.filter(({ father }) => father !== null);
-  const homeLink = HomeLink({ router });
-
+const handleSidebarResize = (container) => {
   window.addEventListener('resize', () => {
     const { innerWidth: width } = window;
-    const breakpointNumber = Number(styles.breakpointMedium.replace('px', ''));
     if (width < breakpointNumber) {
       container.classList.add(styles.hide);
       container.classList.remove(styles.show);
@@ -35,8 +17,18 @@ export function SideBar({ routes, router }) {
       container.classList.remove(styles.hide);
     }
   });
+};
 
-  container.appendChild(homeLink);
+function SideBarComponent(props) {
+  const { routes, router } = this.getProps(props, this.defaultProps);
+
+  const firstLevel = routes.filter(({ father }) => father !== null && father === '0');
+  const children = routes.filter(({ father }) => father !== null);
+
+  const container = document.createElement('nav');
+  container.classList.add(styles.container);
+  container.appendChild(HomeLink({ router }));
+  container.appendChild(Icon({ className: 'devicon-babel-plain colored' }));
 
   firstLevel.forEach(({ title, id }) => {
     container.appendChild(Accordion({
@@ -46,5 +38,14 @@ export function SideBar({ routes, router }) {
     }));
   });
 
+  handleSidebarResize(container);
+
   return container;
 }
+
+export const SideBar = new Component(SideBarComponent, {
+  defaultProps: {
+    routes: [],
+    router: null,
+  },
+});

@@ -4,8 +4,8 @@ $spacingUnit: 10px;
   @return $spacingUnit * $times;
 }
 
-$sidebarWidth: getSpacing(25);
-$searchTableHeightMobile: getSpacing(8);
+$sideBarWidth: getSpacing(25);
+$mainContentWidth: calc(100vw - #{$sideBarWidth});
 
 @mixin flex ($direction: rows, $horizontal: center, $vertical: center) {
   display: flex;

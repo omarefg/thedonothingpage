@@ -5,12 +5,10 @@
 @import './foundations/typography.scss';
 @import './foundations/breakpoints.scss';
 @import './foundations/zIndexes.scss';
+@import './foundations/icons.scss';
 
 /* Base classes are initial specifications */
 @import './base.scss';
 
 /* Mixins */
 @import './mixins.scss';
-
-/* General classes */
-@import './general.scss';

@@ -1,4 +1,7 @@
-export function Link({ title, onClick, children }) {
+import { Component } from '../../decorators';
+
+function LinkComponent(props) {
+  const { title, onClick, children } = this.getProps(props, this.defaultProps);
   const a = document.createElement('a');
   if (children) {
     a.appendChild(children);
@@ -8,3 +11,11 @@ export function Link({ title, onClick, children }) {
   a.addEventListener('click', onClick);
   return a;
 }
+
+export const Link = new Component(LinkComponent, {
+  defaultProps: {
+    title: '',
+    onClick: () => {},
+    children: null,
+  },
+});

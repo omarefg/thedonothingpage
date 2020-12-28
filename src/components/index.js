@@ -1,3 +1,6 @@
 export * from './link/Link';
-export * from './sidebar/SideBar';
+export * from './sideBar/SideBar';
 export * from './accordion/Accordion';
+export * from './mainContent/MainContent';
+export * from './homeLink/HomeLink';
+export * from './icon/Icon';
