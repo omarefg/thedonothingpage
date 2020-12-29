@@ -1,12 +1,10 @@
-$hoverColor: rgba(0,0,0,0.05);
-
 details[open] summary {
-    background-color: $hoverColor;
+    background-color: $colorActiveLiColor;
 }
 
 details {
     :focus {
-        background-color: $hoverColor;
+        background-color: $colorActiveLiColor;
     }
 }
 
@@ -24,7 +22,7 @@ details {
     user-select: none;
 
     &:hover {
-        background-color: $hoverColor;
+        background-color: $colorActiveLiColor;
         transition: getTransitionTiming(2);
     }
 }

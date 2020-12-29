@@ -32,9 +32,20 @@ export default class Router {
     return this.routes.find(({ path }) => path() === url);
   }
 
+  setActiveLink(path) {
+    this.sideBar.querySelectorAll('li').forEach((li) => {
+      if (li.dataset.path === path) {
+        li.classList.add('active-li');
+      } else {
+        li.classList.remove('active-li');
+      }
+    });
+  }
+
   goTo({ url, useReplace, forceUpdate }) {
     if (url !== window.location.pathname || forceUpdate) {
       const matchedRoute = this.getMatchedRoute(url);
+      this.setActiveLink(matchedRoute.path());
       if (useReplace) {
         window.history.replaceState({}, '', url);
       } else {

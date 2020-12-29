@@ -16,6 +16,7 @@ function View() {
 
   children.forEach(({ title: childrenTitle, path }) => {
     const li = document.createElement('li');
+    li.setAttribute('data-path', path());
     li.appendChild(Link({
       title: childrenTitle,
       onClick: () => onChildClick(path),

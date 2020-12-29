@@ -5,6 +5,7 @@ $colorWhite: #fefefe;
 $colorError: #d23737;
 $colorSuccess: #287D37;
 $colorWarning: #ffc914;
+$colorActiveLiColor: rgba(0,0,0,0.05);
 
 @function getBlackTransparency($transparency: 0.25) {
     @return rgba(0,0,0,$transparency)
@@ -18,4 +19,5 @@ $colorWarning: #ffc914;
     colorError: $colorError;
     colorSuccess: $colorSuccess;
     colorWarning: $colorWarning;
+    colorActiveLiColor: $colorActiveLiColor;
 }
