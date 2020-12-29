@@ -3,8 +3,8 @@ import { Accordion } from '../accordion/Accordion';
 import { HomeLink } from '../homeLink/HomeLink';
 import styles from './Sidebar.module.scss';
 
-function SideBarComponent(props) {
-  const { routes, router } = this.getProps(props, this.defaultProps);
+function View() {
+  const { routes, router } = this.props;
 
   const firstLevel = routes.filter(({ father }) => father !== null && father === '0');
   const children = routes.filter(({ father }) => father !== null);
@@ -24,7 +24,8 @@ function SideBarComponent(props) {
   return container;
 }
 
-export const SideBar = new Component(SideBarComponent, {
+export const SideBar = (props) => new Component(View, {
+  props,
   defaultProps: {
     routes: [],
     router: null,

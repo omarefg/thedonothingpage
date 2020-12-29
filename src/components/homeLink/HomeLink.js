@@ -1,10 +1,10 @@
 import { Component } from '../../decorators';
-import LogoLeftside from '../../assets/logoLeftSide.png';
-import LogoRightSide from '../../assets/logoRightSide.png';
+import LogoLeftside from '../../assets/images/logoLeftSide.png';
+import LogoRightSide from '../../assets/images/logoRightSide.png';
 import { Link } from '../link/Link';
 import styles from './HomeLink.module.scss';
 
-function HomeLinkComponent(props) {
+function View() {
   const {
     router,
     titleText,
@@ -12,7 +12,7 @@ function HomeLinkComponent(props) {
     url,
     logoLeftsideSrc,
     logoRightSideSrc,
-  } = this.getProps(props, this.defaultProps);
+  } = this.props;
 
   const container = document.createElement('div');
   const logoLeftside = document.createElement('img');
@@ -36,7 +36,8 @@ function HomeLinkComponent(props) {
   return Link({ onClick: () => router.goTo({ url }), children: container });
 }
 
-export const HomeLink = new Component(HomeLinkComponent, {
+export const HomeLink = (props) => new Component(View, {
+  props,
   defaultProps: {
     router: null,
     titleText: 'The do nothing page',

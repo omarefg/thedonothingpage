@@ -5,3 +5,17 @@ $colorWhite: #fefefe;
 $colorError: #d23737;
 $colorSuccess: #287D37;
 $colorWarning: #ffc914;
+
+@function getBlackTransparency($transparency: 0.25) {
+    @return rgba(0,0,0,$transparency)
+}
+
+:export {
+    colorFontMain: $colorFontMain;
+    colorBgDark: $colorBgDark;
+    colorBgSideBar: $colorBgSideBar;
+    colorWhite: $colorWhite;
+    colorError: $colorError;
+    colorSuccess: $colorSuccess;
+    colorWarning: $colorWarning;
+}

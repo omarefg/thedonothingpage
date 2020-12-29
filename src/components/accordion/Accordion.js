@@ -2,8 +2,8 @@ import { Component } from '../../decorators';
 import { Link } from '../link/Link';
 import styles from './Accordion.module.scss';
 
-function AccordionComponent(props) {
-  const { title, children, onChildClick } = this.getProps(props, this.defaultProps);
+function View() {
+  const { title, children, onChildClick } = this.props;
 
   const container = document.createElement('details');
   const summary = document.createElement('summary');
@@ -28,7 +28,8 @@ function AccordionComponent(props) {
   return container;
 }
 
-export const Accordion = new Component(AccordionComponent, {
+export const Accordion = (props) => new Component(View, {
+  props,
   defaultProps: {
     title: '',
     children: [],

@@ -1,15 +1,16 @@
 import { Component } from '../../decorators';
 
-function IconComponent(props) {
+function View() {
+  const { size, className } = this.props;
   const icon = document.createElement('i');
-  const { size, className } = this.getProps(props, this.defaultProps);
   icon.style.fontSize = size;
   icon.className = className;
 
   return icon;
 }
 
-export const Icon = new Component(IconComponent, {
+export const Icon = (props) => new Component(View, {
+  props,
   defaultProps: {
     className: '',
     size: '2rem',

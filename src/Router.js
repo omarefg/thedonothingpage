@@ -1,15 +1,18 @@
 import { SideBar, MainContent } from './components';
+import { SideBarController } from './components/sideBarController/SideBarController';
 import routes from './routes/routes';
 
 export default class Router {
   constructor() {
     this.routes = routes;
     this.instance = null;
-    this.sidebar = SideBar({ router: this, routes });
+    this.sideBar = SideBar({ router: this, routes });
     this.content = MainContent();
+    this.sideBarController = SideBarController({ sideBar: this.sideBar });
     this.app = document.querySelector('[data-app]');
-    this.app.appendChild(this.sidebar);
+    this.app.appendChild(this.sideBar);
     this.app.appendChild(this.content);
+    this.app.appendChild(this.sideBarController);
 
     window.addEventListener('popstate', () => this.paintCurrentPage({ useReplace: true, forceUpdate: true }));
   }

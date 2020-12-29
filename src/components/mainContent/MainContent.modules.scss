@@ -1,7 +1,8 @@
 .container {
     width: 100vw;
-    transition: 0.25s;
-    padding-left: 50px;
+    transition: getTransitionTiming();
+    padding-left: getSpacing(5);
+    padding-top: getSpacing(5);
     @include applyTo('m') {
         padding-left: getSpacing(30);
     }

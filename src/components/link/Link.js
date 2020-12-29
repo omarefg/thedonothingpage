@@ -1,12 +1,12 @@
 import { Component } from '../../decorators';
 
-function LinkComponent(props) {
+function View() {
   const {
     title,
     onClick,
     children,
     classList,
-  } = this.getProps(props, this.defaultProps);
+  } = this.props;
 
   const a = document.createElement('a');
   a.classList.add(...classList);
@@ -22,7 +22,8 @@ function LinkComponent(props) {
   return a;
 }
 
-export const Link = new Component(LinkComponent, {
+export const Link = (props) => new Component(View, {
+  props,
   defaultProps: {
     title: '',
     onClick: () => {},
