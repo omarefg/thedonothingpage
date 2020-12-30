@@ -16,6 +16,12 @@ function View() {
   return container;
 }
 
+/**
+ *
+ * @param {{
+ *  src: string
+ * }} props
+ */
 export const PostImage = (props) => new Component(View, {
   props,
   defaultProps: {

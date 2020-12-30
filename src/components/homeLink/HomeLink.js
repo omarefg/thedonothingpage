@@ -36,6 +36,18 @@ function View() {
   return Link({ onClick: () => router.goTo({ url }), children: container });
 }
 
+/**
+ *
+ * @param {{
+ *  router: {},
+ *  titleText: string,
+ *  logoWidth: number,
+ *  url: string,
+ *  logoLeftsideSrc: string,
+ *  logoRightSideSrc: string
+ * }} props
+ * @author Omar Flores <dev@omarefg.com>
+ */
 export const HomeLink = (props) => new Component(View, {
   props,
   defaultProps: {

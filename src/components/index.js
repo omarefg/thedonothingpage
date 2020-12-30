@@ -7,3 +7,4 @@ export * from './icon/Icon';
 export * from './menuIcon/MenuIcon';
 export * from './postImage/PostImage';
 export * from './codeBlock/CodeBlock';
+export * from './postContainer/PostContainer';

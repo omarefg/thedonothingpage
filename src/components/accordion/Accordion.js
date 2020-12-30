@@ -29,6 +29,15 @@ function View() {
   return container;
 }
 
+/**
+ * Accordion component
+ * @param {{
+ *  title: string,
+ *  children: any[],
+ *  onChildClick: Function
+ * }} props - The props to receive
+ * @author Omar Flores <dev@omarefg.com>
+ */
 export const Accordion = (props) => new Component(View, {
   props,
   defaultProps: {

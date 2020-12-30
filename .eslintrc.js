@@ -19,6 +19,8 @@ module.exports = {
   ],
   rules: {
     'import/prefer-default-export': 0,
+    'max-len': 0,
+    'no-underscore-dangle': [2, { allowAfterThis: true }],
   },
   settings: {
     'import/core-modules': [

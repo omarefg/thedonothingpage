@@ -15,6 +15,14 @@ function View() {
   return container;
 }
 
+/**
+ * CodeBlock component
+ * @param {{
+ *  code: string,
+ *  language: string
+ * }} props
+ * @author Omar Flores <dev@omarefg.com>
+ */
 export const CodeBlock = (props) => new Component(View, {
   props,
   defaultProps: {

@@ -1,6 +1,9 @@
-/* eslint-disable no-underscore-dangle */
 import lodash from 'lodash';
 
+/**
+ * @param {{}} handlers
+ * @author Omar Flores <dev@omarefg.com>
+ */
 function setHandlers(handlers) {
   if (lodash.isPlainObject(handlers)) {
     Object.keys(handlers).forEach((key) => {
@@ -12,6 +15,11 @@ function setHandlers(handlers) {
   }
 }
 
+/**
+ * @param {{}} props
+ * @param {{}} defaultProps
+ * @author Omar Flores <dev@omarefg.com>
+ */
 function setProps(props = {}, defaultProps = {}) {
   const resultingProps = {};
   Object.keys({ ...defaultProps, ...props }).forEach((key) => {
@@ -20,27 +28,37 @@ function setProps(props = {}, defaultProps = {}) {
   this.props = resultingProps;
 }
 
+/**
+ * @param {{}} state
+ * @author Omar Flores <dev@omarefg.com>
+ */
 function setInitialState(state = {}) {
   this.state = state;
 }
 
 /**
  *
- * @param {function} view
+ * @param {function} view - The view to mount in the dom, it must be a function that returns an HTML element
  * @param {{
  *  props: {},
  *  defaultProps: {},
  *  handlers: {},
  *  state: {},
  *  onMount: function
- * }} config
+ * }} config - Configuration object, it contains all the logic and data
+ * @author Omar Flores <dev@omarefg.com>
  */
 export function Component(view, config = {}) {
   setProps.bind(this)(config.props, config.defaultProps);
   setHandlers.bind(this)(config.handlers);
   setInitialState.bind(this)(config.state);
+
+  /** @private */
   this.__viewReferenceNode__ = view.bind(this)();
+
+  /** @private */
   this.__viewReferenceDef__ = view.bind(this);
+
   if (config.onMount) {
     config.onMount.bind(this)();
   }
@@ -48,6 +66,10 @@ export function Component(view, config = {}) {
   return this.__viewReferenceNode__;
 }
 
+/**
+ * @param {{}} state
+ * @author Omar Flores <dev@omarefg.com>
+ */
 Component.prototype.setState = function setState(state) {
   if (!state) {
     throw new Error('Cannot set an empty state');

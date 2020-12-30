@@ -21,7 +21,9 @@ function View() {
         children: children.filter(({ father }) => father === id),
       }));
     }
-    // @TODO create list item for first level without children :)
+    /**
+     * @TODO create list item for first level without children :)
+     */
   });
 
   return container;
