@@ -1,0 +1,14 @@
+.container {
+    text-align: center;
+    margin: getSpacing(2) 0;
+}
+
+.image {
+    width: 100%;
+    border-radius: getSpacing();
+    box-shadow: 0 0 5px 0 getBlackTransparency(0.25);
+
+    @include applyTo('s') {
+        width: 500px;
+    }
+}

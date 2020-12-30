@@ -1,0 +1,4 @@
+.container {
+    @include boxShadow(getSpacing(0.5));
+    border-radius: getSpacing(0.5);
+}

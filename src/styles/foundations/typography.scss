@@ -8,6 +8,26 @@ $fontFamilyBase: 'Roboto', sans-serif;
 $fontSizeBase: 16px;
 $fontSizeSmall: $fontSizeBase - 4px;
 
+p {
+  font-size: 1rem;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: getSpacing() 0;
+  text-align: justify;
+}
+
+blockquote {
+  background: $colorBgSideBar;
+  border-left: getSpacing() solid $colorBgDark;
+  margin: 1.5em getSpacing();
+  padding: 0.5em getSpacing();
+  quotes: "\201C""\201D""\2018""\2019";
+  font-style: italic;
+  border-top-right-radius: getSpacing();
+  border-bottom-right-radius: getSpacing();
+}
+
 :export {
   fontWeightThin: $fontWeightThin;
   fontWeightLight: $fontWeightLight;
