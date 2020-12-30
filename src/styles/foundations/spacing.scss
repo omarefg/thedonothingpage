@@ -4,5 +4,5 @@ $spacingUnit: 10px;
   @return $spacingUnit * $times;
 }
 
-$sideBarWidth: getSpacing(25);
+$sideBarWidth: getSpacing(30);
 $mainContentWidth: calc(100vw - #{$sideBarWidth});

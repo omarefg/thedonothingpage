@@ -29,7 +29,7 @@ export default class Router {
   }
 
   getMatchedRoute(url) {
-    return this.routes.find(({ path }) => path() === url);
+    return this.routes.find(({ path }) => typeof path === 'function' && path() === url);
   }
 
   setActiveLink(path) {
@@ -45,7 +45,11 @@ export default class Router {
   goTo({ url, useReplace, forceUpdate }) {
     if (url !== window.location.pathname || forceUpdate) {
       const matchedRoute = this.getMatchedRoute(url);
-      this.setActiveLink(matchedRoute.path());
+
+      if (matchedRoute.path) {
+        this.setActiveLink(matchedRoute.path());
+      }
+
       if (useReplace) {
         window.history.replaceState({}, '', url);
       } else {

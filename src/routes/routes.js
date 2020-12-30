@@ -1,7 +1,7 @@
-import rootRoutes from './rootRoutes';
-import finalHtmlAndCssCourseRoutes from './finalHtmlAndCssCourseRoutes';
+import root from './root';
+import jsDataStructures from './jsDataStructure';
 
 export default [
-  ...rootRoutes,
-  ...finalHtmlAndCssCourseRoutes,
+  ...root,
+  ...jsDataStructures,
 ];

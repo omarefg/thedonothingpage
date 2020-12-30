@@ -10,13 +10,13 @@ details {
 
 .summary {
     user-select: none;
-    padding: getSpacing(1.5) 0 getSpacing(1.5) getSpacing(0.5);
+    padding: getSpacing(1.5) getSpacing(2) getSpacing(1.5) getSpacing(1.5);
     cursor: pointer;
     outline: none;
 }
 
 .anchor {
-    padding: getSpacing(1.5) 0 getSpacing(1.5) getSpacing();
+    padding: getSpacing(1.5) getSpacing(2);
     display: block;
     cursor: pointer;
     user-select: none;
