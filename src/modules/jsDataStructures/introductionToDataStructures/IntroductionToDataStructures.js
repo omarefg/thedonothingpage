@@ -1,4 +1,4 @@
-import { Component } from '../../../decorators';
+import Miru from '@omarefg/miru';
 import { PostImage, CodeBlock, PostContainer } from '../../../components';
 import image1 from './assets/1.png';
 import image2 from './assets/2.png';
@@ -73,7 +73,7 @@ function View() {
   });
 }
 
-export const IntroductionToDataStructures = (props) => new Component(View, {
+export const IntroductionToDataStructures = (props) => new Miru(View, {
   props,
   defaultProps: {},
 });

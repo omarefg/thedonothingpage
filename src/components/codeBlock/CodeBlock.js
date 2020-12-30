@@ -1,6 +1,6 @@
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
-import { Component } from '../../decorators';
+import Miru from '@omarefg/miru';
 import styles from './CodeBlock.module.scss';
 
 function View() {
@@ -23,7 +23,7 @@ function View() {
  * }} props
  * @author Omar Flores <dev@omarefg.com>
  */
-export const CodeBlock = (props) => new Component(View, {
+export const CodeBlock = (props) => new Miru(View, {
   props,
   defaultProps: {
     code: '',

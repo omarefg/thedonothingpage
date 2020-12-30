@@ -1,4 +1,4 @@
-import { Component } from '../../decorators';
+import Miru from '@omarefg/miru';
 import style from './PostImage.module.scss';
 
 function View() {
@@ -22,7 +22,7 @@ function View() {
  *  src: string
  * }} props
  */
-export const PostImage = (props) => new Component(View, {
+export const PostImage = (props) => new Miru(View, {
   props,
   defaultProps: {
     src: '',

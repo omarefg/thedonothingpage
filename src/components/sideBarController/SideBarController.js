@@ -1,4 +1,4 @@
-import { Component } from '../../decorators';
+import Miru from '@omarefg/miru';
 import { MenuIcon } from '../menuIcon/MenuIcon';
 import { PanelController } from '../panelController/PanelController';
 import styles from './SideBarController.module.scss';
@@ -11,7 +11,7 @@ function View() {
   return controller;
 }
 
-export const SideBarController = (props) => new Component(View, {
+export const SideBarController = (props) => new Miru(View, {
   props,
   defaultProps: {
     sideBar: null,

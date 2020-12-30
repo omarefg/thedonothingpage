@@ -1,4 +1,4 @@
-import { Component } from '../../decorators';
+import Miru from '@omarefg/miru';
 import style from './PostContainer.module.scss';
 
 function View() {
@@ -9,7 +9,7 @@ function View() {
   return container;
 }
 
-export const PostContainer = (props) => new Component(View, {
+export const PostContainer = (props) => new Miru(View, {
   props,
   defaultProps: {
     innerHTML: '',

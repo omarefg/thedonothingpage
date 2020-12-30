@@ -1,4 +1,4 @@
-import { Component } from '../../decorators';
+import Miru from '@omarefg/miru';
 
 function View() {
   const {
@@ -20,7 +20,7 @@ function View() {
   return icon;
 }
 
-export const MenuIcon = (props) => new Component(View, {
+export const MenuIcon = (props) => new Miru(View, {
   props,
   defaultProps: {
     size: '16',

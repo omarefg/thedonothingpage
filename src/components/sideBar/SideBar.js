@@ -1,4 +1,4 @@
-import { Component } from '../../decorators';
+import Miru from '@omarefg/miru';
 import { Accordion } from '../accordion/Accordion';
 import { HomeLink } from '../homeLink/HomeLink';
 import styles from './Sidebar.module.scss';
@@ -29,7 +29,7 @@ function View() {
   return container;
 }
 
-export const SideBar = (props) => new Component(View, {
+export const SideBar = (props) => new Miru(View, {
   props,
   defaultProps: {
     routes: [],

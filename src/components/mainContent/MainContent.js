@@ -1,4 +1,4 @@
-import { Component } from '../../decorators';
+import Miru from '@omarefg/miru';
 import styles from './MainContent.modules.scss';
 
 function View() {
@@ -7,7 +7,7 @@ function View() {
   return main;
 }
 
-export const MainContent = (props) => new Component(View, {
+export const MainContent = (props) => new Miru(View, {
   props,
   defaultProps: {},
 });

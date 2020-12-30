@@ -1,4 +1,4 @@
-import { Component } from '../../decorators';
+import Miru from '@omarefg/miru';
 import styles from './PanelController.module.scss';
 
 function View() {
@@ -12,7 +12,7 @@ function View() {
   return panel;
 }
 
-export const PanelController = (props) => new Component(View, {
+export const PanelController = (props) => new Miru(View, {
   props,
   defaultProps: {
     onClick: () => {},

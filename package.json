@@ -60,7 +60,7 @@
     "webpack-dev-server": "3.11.0"
   },
   "dependencies": {
-    "lodash": "4.17.20",
+    "@omarefg/miru": "0.0.4",
     "prismjs": "1.22.0"
   }
 }

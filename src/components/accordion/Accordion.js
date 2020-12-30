@@ -1,4 +1,4 @@
-import { Component } from '../../decorators';
+import Miru from '@omarefg/miru';
 import { Link } from '../link/Link';
 import styles from './Accordion.module.scss';
 
@@ -38,7 +38,7 @@ function View() {
  * }} props - The props to receive
  * @author Omar Flores <dev@omarefg.com>
  */
-export const Accordion = (props) => new Component(View, {
+export const Accordion = (props) => new Miru(View, {
   props,
   defaultProps: {
     title: '',

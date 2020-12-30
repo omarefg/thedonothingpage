@@ -1,4 +1,4 @@
-import { Component } from '../../decorators';
+import Miru from '@omarefg/miru';
 import LogoLeftside from '../../assets/images/logoLeftSide.png';
 import LogoRightSide from '../../assets/images/logoRightSide.png';
 import { Link } from '../link/Link';
@@ -48,7 +48,7 @@ function View() {
  * }} props
  * @author Omar Flores <dev@omarefg.com>
  */
-export const HomeLink = (props) => new Component(View, {
+export const HomeLink = (props) => new Miru(View, {
   props,
   defaultProps: {
     router: null,

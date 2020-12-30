@@ -1,11 +1,11 @@
-import { Component } from '../../../decorators';
+import Miru from '@omarefg/miru';
 
 function View() {
   const div = document.createElement('div');
   return div;
 }
 
-export const Trees = (props) => new Component(View, {
+export const Trees = (props) => new Miru(View, {
   props,
   defaultProps: {},
 });
