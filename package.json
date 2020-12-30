@@ -61,7 +61,6 @@
   },
   "dependencies": {
     "lodash": "4.17.20",
-    "prismjs": "1.22.0",
-    "vscode-codicons": "0.0.13"
+    "prismjs": "1.22.0"
   }
 }
