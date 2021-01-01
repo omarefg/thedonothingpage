@@ -7,11 +7,7 @@ function View() {
   const { code, language } = this.props;
   const container = document.createElement('pre');
   container.classList.add(language, styles.container);
-  container.innerHTML = `
-    <code class="${language}">
-      ${Prism.highlight(code, Prism.languages.javascript, 'javascript')}
-    </code>
-  `;
+  container.innerHTML = `<code class="${language}">${Prism.highlight(code, Prism.languages.javascript, 'javascript')}</code>`;
   return container;
 }
 
