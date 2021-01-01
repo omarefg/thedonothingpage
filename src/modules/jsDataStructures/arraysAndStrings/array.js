@@ -58,9 +58,52 @@ const block = {
         return lastItem;
       }
 
-      // Funciona para eliminar un elemento del array
-      delete() {
+      // Contiene la lógica necesaria para borrar un elemento del array
+      // Consta de varios pasos:
+      // 1. Generamos una constante con el valor del dato que vamos a borrar
+      // 2. bajamos la longitud del arreglo
+      // 3. Iteramos sobre el arreglo a partir del índice que queremos borrar
+      // 4. Durante esta iteración convertimos el elemento sobre el que estamos iterando en el siguiente de la lista
+      // 5. Al final nos quedaría un array donde el último valor es undefined y sin el valor que queremos eliminar
+      // 6. Cómo el último valor es undefined, simplemente lo quitamos con la palabra reservada "delete"
+      // 7. Retornamos el valor del índice que acabamos de borrar
+      // 8. Ya 👀
+      delete(index) {
+        const item = this.data[index];
+        this.length -= 1;
+        for (let i = index; i < this.length; i += 1) {
+          this.data[i] = this.data[i + 1];
+        }
+        delete this.data[this.length];
+        return item;
+      }
 
+      // Contiene la lógica necesaria para añadir elementos a un índice
+      // La lógica consiste en:
+      // 1. Recibimos un índice y un valor
+      // 2. Iteramos el arreglo desde un índice mayor al último hasta el segundo índice
+      // 3. Igualamos el índice actual con el anterior
+      // 5. Aumentamos la longitud del arreglo
+      // 6. Igualamos el valor en el índice 0 con el elemento que estamos recibiendo
+      // 7. Retornamos la data
+      // 8. Ya 👀
+      add(index, element) {
+        for (let i = this.length; i > 0; i -= 1) {
+          this.data[i] = this.data[i - 1];
+        }
+        this.length += 1;
+        this.data[0] = element;
+        return this.data;
+      }
+
+      // Añade un elemento al principio de nuestro array
+      shift(element) {
+        return this.add(0, element);
+      }
+
+      // Elimina un elemento al principio de nuestro array
+      unshift() {
+        return this.delete(0);
       }
     };
   },
@@ -69,20 +112,24 @@ const block = {
 
     return () => {
       const myArray = new MyArray();
-      myArray.push('León'); // {0: 'León'}
+      myArray.push('🦁'); // {0: '🦁'}
       // Y si añadirmos otro
-      myArray.push('Tigre'); // {0: 'León', 1: 'Tigre}
+      myArray.push('🐯'); // {0: '🦁', 1: '🐯'}
       console.log(myArray.length); // 2
-      console.log(myArray.get(1)); // 'Tigre'
-      console.log(myArray.get(0)); // 'León'
-      myArray.pop(); // 'Tigre'
-      console.log(myArray.data); // { 0: 'León' }
-      myArray.push('Jirafa');
-      console.log(myArray.data); // { 0: 'León', 1: 'Jirafa' }
+      console.log(myArray.get(1)); // '🐯'
+      console.log(myArray.get(0)); // '🦁'
+      myArray.pop(); // '🐯'
+      console.log(myArray.data); // { 0: '🦁' }
+      myArray.push('🐶');
+      console.log(myArray.data); // { 0: '🦁', 1: '🐶' }
+      myArray.delete(0);
+      console.log(myArray.data); // { 0: '🐶' }
+      myArray.shift('🐱');
+      console.log(myArray.data); // {0: '🐱', 1: '🐶'}
+      myArray.unshift(); // '🐱'
+      console.log(myArray.data); // {0: '🐶'}
     };
   },
 };
-
-block[7]()();
 
 export default block;

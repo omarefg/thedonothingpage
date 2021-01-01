@@ -18,7 +18,8 @@ import { filterCodeBlock } from '../../../utils/filters';
 function View() {
   return PostContainer({
     innerHTML: `
-      <h1>Arrays</h1>
+      <h1>Arrays y Strings</h1>
+      <h2>Arrays</h2>
       <p>Quizás una de las estructuras de datos más conocida y utilizada</p>
       <p>Un array es simplemente una colección de datos, podríamos representarla de la siguiente manera:</p>
       ${PostImage({ src: image1 }).outerHTML}
@@ -84,6 +85,7 @@ function View() {
       ${CodeBlock({ code: filterCodeBlock(array[6].toString()).replace('return ', '') }).outerHTML}
       <p>Bien, ahora probemos la instancia que acabamos de hacer</p>
       ${CodeBlock({ code: filterCodeBlock(array[7].toString(), 2) }).outerHTML}
+      <h2>Strings</h2>
     `,
   });
 }
