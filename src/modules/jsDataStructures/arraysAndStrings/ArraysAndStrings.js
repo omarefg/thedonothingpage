@@ -13,6 +13,7 @@ import image7 from './assets/7.gif';
 import image8 from './assets/8.gif';
 import image9 from './assets/9.png';
 import array from '!./array';
+import string from '!./string';
 import { filterCodeBlock } from '../../../utils/filters';
 
 function View() {
@@ -86,6 +87,10 @@ function View() {
       <p>Bien, ahora probemos la instancia que acabamos de hacer</p>
       ${CodeBlock({ code: filterCodeBlock(array[7].toString(), 2) }).outerHTML}
       <h2>Strings</h2>
+      <p>Los strings no son una estructura de datos como tal, pero la forma en la que se guarda la información en memoria es como una estructura de datos.</p>
+      ${CodeBlock({ code: filterCodeBlock(string[1].toString(), 2) }).outerHTML}
+      <p>Bien, arriba tenemos la constante saludo, cuyo valor es "Hola" y es almacenado en memoria</p>
+      <p>¿Cómo se guarda en memoria, o que tipo de estructura tendría al momento de guardarse en memoria?</p>
     `,
   });
 }

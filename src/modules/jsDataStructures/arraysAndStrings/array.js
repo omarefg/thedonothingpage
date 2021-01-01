@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 const block = {
   1() {
@@ -97,12 +98,12 @@ const block = {
       }
 
       // Añade un elemento al principio de nuestro array
-      shift(element) {
+      unshift(element) {
         return this.add(0, element);
       }
 
       // Elimina un elemento al principio de nuestro array
-      unshift() {
+      shift() {
         return this.delete(0);
       }
     };
