@@ -12,6 +12,7 @@ import image6 from './assets/6.png';
 import image7 from './assets/7.gif';
 import image8 from './assets/8.gif';
 import image9 from './assets/9.png';
+import image10 from './assets/10.png';
 import array from '!./array';
 import string from '!./string';
 import { filterCodeBlock } from '../../../utils/filters';
@@ -89,9 +90,15 @@ function View() {
       <h2>Strings</h2>
       <p>Los strings no son una estructura de datos como tal, pero la forma en la que se guarda la información en memoria es como una estructura de datos.</p>
       ${CodeBlock({ code: filterCodeBlock(string[1].toString(), 2) }).outerHTML}
-      <p>Bien, arriba tenemos la constante saludo, cuyo valor es "Hola" y es almacenado en memoria</p>
+      <p>Bien, arriba tenemos la  constante saludo, cuyo valor es "Hola" y es almacenado en memoria</p>
+      <p>Es importante decir que en JavaScript los strings (y todos los tipos de datos primitivos) son inmutables.</p>
+      <p>Generar cambios en un string requiere que busquemos nuevos slots de memoria disponibles y almacenar ahí nuevamente el string con los cambios para liberar los slots que ocupaba previamente.</p>
       <p>¿Cómo se guarda en memoria, o que tipo de estructura tendría al momento de guardarse en memoria?</p>
-    `,
+      <p>Lo hace como si fuera un array de chars, o caracteres. Donde cada caracter va a representar un valor dentro del array.</p>
+      ${PostImage({ src: image10 }).outerHTML}
+      <p>Esto quiere decir que nosotros podríamos acceder al valor dentro del índice del string de la siguiente manera</p>
+      ${CodeBlock({ code: filterCodeBlock(string[2].toString(), 2) }).outerHTML}
+      `,
   });
 }
 
