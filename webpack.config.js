@@ -2,9 +2,9 @@ const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const TerserWebpackPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const { ESBuildPlugin } = require('esbuild-loader');
 
 module.exports = {
   entry: resolve(__dirname, 'src/index.js'),
@@ -21,8 +21,12 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
+        loader: 'esbuild-loader',
+        exclude: '/node_modules/',
+        options: {
+          loader: 'jsx',
+          target: 'es2015',
+        },
       },
       {
         test: /\.(s*)css$/,
@@ -81,12 +85,6 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      new TerserWebpackPlugin({
-        exclude: [
-          resolve(__dirname, 'src/modules/jsDataStructures/arraysAndStrings/array.js'),
-          resolve(__dirname, 'src/modules/jsDataStructures/arraysAndStrings/string.js'),
-        ],
-      }),
       new OptimizeCssAssetsPlugin(),
     ],
   },
@@ -102,5 +100,6 @@ module.exports = {
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['**/dist.*'],
     }),
+    new ESBuildPlugin(),
   ],
 };

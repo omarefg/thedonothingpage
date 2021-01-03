@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const { ESBuildPlugin } = require('esbuild-loader');
 
 const host = 'localhost';
 const port = 8080;
@@ -27,8 +28,12 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        loader: 'esbuild-loader',
         exclude: '/node_modules/',
+        options: {
+          loader: 'jsx',
+          target: 'es2015',
+        },
       },
       {
         test: /\.(s*)css$/,
@@ -94,6 +99,7 @@ module.exports = {
       },
     }),
     new FaviconsWebpackPlugin(resolve(__dirname, 'public/favicon.svg')),
+    new ESBuildPlugin(),
   ],
   mode: 'development',
 };

@@ -27,9 +27,9 @@ module.exports = {
       'webpack',
       'html-webpack-plugin',
       'autoprefixer',
-      'terser-webpack-plugin',
       'optimize-css-assets-webpack-plugin',
       'favicons-webpack-plugin',
+      'esbuild-loader',
     ],
   },
 };
