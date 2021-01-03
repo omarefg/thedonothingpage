@@ -48,6 +48,16 @@ const block = {
         }
         return undefined;
       }
+
+      // Nos permite obtener todos los keys que existen en nuestro hash
+      keys() {
+        return this.data.map((bucket) => bucket.map((element) => element[0])).flat();
+      }
+
+      // Nos permite eliminar un valor de nuestra data
+      remove(key) {
+        this.data = this.data.map((bucket) => bucket.filter((element) => element[0] !== key));
+      }
     };
   },
   2() {
@@ -58,8 +68,10 @@ const block = {
       hashTable.set('Manzanas', 25);
       hashTable.set('Peras', 32);
       hashTable.set('Manzanas', 30);
-      console.log(hashTable.get('Manzanas'));
-      console.log(hashTable.data);
+      console.log(hashTable.get('Manzanas')); // 30
+      console.log(hashTable.keys()); // ['Manzanas', 'Peras']
+      hashTable.remove('Manzanas');
+      console.log(hashTable.keys()); // ['Peras']
     };
   },
 };
