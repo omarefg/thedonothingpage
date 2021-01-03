@@ -81,7 +81,9 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      new TerserWebpackPlugin(),
+      new TerserWebpackPlugin({
+        exclude: /\.raw(\?.*)?$/i,
+      }),
       new OptimizeCssAssetsPlugin(),
     ],
   },

@@ -13,8 +13,8 @@ import image7 from './assets/7.gif';
 import image8 from './assets/8.gif';
 import image9 from './assets/9.png';
 import image10 from './assets/10.png';
-import array from '!!./array';
-import string from '!!./string';
+import array from '!./array.raw';
+import string from '!./string.raw';
 import { filterCodeBlock } from '../../../utils/filters';
 
 function View() {
