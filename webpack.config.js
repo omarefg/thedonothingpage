@@ -82,7 +82,10 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserWebpackPlugin({
-        exclude: /\.raw(\?.*)?$/i,
+        exclude: [
+          resolve(__dirname, 'src/modules/jsDataStructures/arraysAndStrings/array.js'),
+          resolve(__dirname, 'src/modules/jsDataStructures/arraysAndStrings/string.js'),
+        ],
       }),
       new OptimizeCssAssetsPlugin(),
     ],
