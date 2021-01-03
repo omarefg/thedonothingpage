@@ -1,10 +1,15 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-webpack-loader-syntax */
 import Miru from '@omarefg/miru';
-import { PostContainer, PostImage } from '../../../components';
+import { CodeBlock, PostContainer, PostImage } from '../../../components';
 import image1 from './assets/1.png';
 import image2 from './assets/2.png';
 import image3 from './assets/3.png';
 import image4 from './assets/4.png';
 import image5 from './assets/5.png';
+import hashTable from '!./hashtablecode';
+import { filterCodeBlock } from '../../../utils/filters';
 
 function View() {
   return PostContainer({
@@ -29,6 +34,10 @@ function View() {
       <p>En ocasiones trabajar con hash tables puede convertirse en un problema por algo que se llama colisión de Hash Table</p>
       ${PostImage({ src: image5 }).outerHTML}
       <p>En ocasiones, pasar un key distinto podría generarnos el mismo hash y eso haría que tenga dos elementos guardados en un mismo bucket, no hay forma de evitar esto, es como funciona, dependiendo de cuantos buckets libres tengamos nos va a regresar este hash para guardar la información. Casi siempre es imposible evitar una colisición, pero es importante saber como podemos tratar una colisión, la idea es enviar la llave y el hash table regresará el valor.</p>
+      <h2>Code time!</h2>
+      <p>Bien, ahora vamos a hacer nuestr propio hash table</p>
+      ${CodeBlock({ code: filterCodeBlock(hashTable[1].toString()).replace('return ', '') }).outerHTML}
+      ${CodeBlock({ code: filterCodeBlock(hashTable[2].toString(), 2) }).outerHTML}
   `,
   });
 }
