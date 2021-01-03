@@ -9,6 +9,12 @@ function View() {
   return container;
 }
 
+/**
+ *
+ * @param {{
+ * innerHTML: string
+ * }} props
+ */
 export const PostContainer = (props) => new Miru(View, {
   props,
   defaultProps: {

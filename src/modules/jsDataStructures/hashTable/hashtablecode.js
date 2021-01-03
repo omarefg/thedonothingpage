@@ -76,6 +76,4 @@ const block = {
   },
 };
 
-block[2]()();
-
 export default block;
