@@ -15,7 +15,7 @@ import image9 from './assets/9.png';
 import image10 from './assets/10.png';
 import array from '!./array';
 import string from '!./string';
-import { filterCodeBlock } from '../../../utils/filters';
+import { filterClassCodeBlock, filterCodeBlock } from '../../../utils/filters';
 
 function View() {
   return PostContainer({
@@ -84,7 +84,7 @@ function View() {
       <p>Y si queremos agregar un elemento al final podríamos utilizar hacerlo utilizando los métodos que nos ofrece el lenguaje, en este caso utilizaríamos un push</p>
       ${CodeBlock({ code: filterCodeBlock(array[5].toString(), 2) }).outerHTML}
       <p>Ahora bien, todo esto nos lo ofrece JavaScript por defecto, lo que vamos a hacer nosotros es crear nuestro propio arreglo con una clase que venga con sus propios métodos</p>
-      ${CodeBlock({ code: filterCodeBlock(array[6].toString()).replace('return ', '') }).outerHTML}
+      ${CodeBlock({ code: filterClassCodeBlock(filterCodeBlock(array[6].toString())) }).outerHTML}
       <p>Bien, ahora probemos la instancia que acabamos de hacer</p>
       ${CodeBlock({ code: filterCodeBlock(array[7].toString(), 2) }).outerHTML}
       <h2>Strings</h2>
