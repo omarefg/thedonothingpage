@@ -3,7 +3,10 @@ import { Link } from '../link/Link';
 import styles from './Accordion.module.scss';
 
 function View() {
-  const { title, children, onChildClick } = this.props;
+  const {
+    title, children, onChildClick,
+  } = this.props;
+  const { isOpen } = this.state;
 
   const container = document.createElement('details');
   const summary = document.createElement('summary');
@@ -11,6 +14,8 @@ function View() {
 
   summary.innerText = title;
   summary.classList.add(styles.summary);
+  container.open = isOpen;
+  container.addEventListener('toggle', this.onOpen);
 
   container.appendChild(summary);
 
@@ -44,5 +49,16 @@ export const Accordion = (props) => new Miru(View, {
     title: '',
     children: [],
     onChildClick: () => {},
+  },
+  handlers: {
+    onOpen(event) {
+      const { title } = props;
+      if (title) {
+        localStorage.setItem(`section-${title.replaceAll(' ', '')}`, Number(event.target.open));
+      }
+    },
+  },
+  state: {
+    isOpen: props.title ? Boolean(Number(localStorage.getItem(`section-${props.title.replaceAll(' ', '')}`))) : false,
   },
 });
