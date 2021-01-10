@@ -1,0 +1,47 @@
+.container {
+    background-image: url('../../../assets/images/composition-notebook.webp');
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-size: contain;
+
+    @include applyTo('m') {
+        left: getSpacing(30);
+    }
+
+    .sticker {
+        background-color: white;
+        width: 95%;
+        height: 300px;
+        margin: 0 auto;
+        margin-top: getSpacing(10);
+        max-width: 500px;
+        border-radius: 50% / 20%;
+        padding: getSpacing(2);
+
+        .innerSticker {
+            border: 5px solid black;
+            width: 100%;
+            height: 100%;
+            border-radius: 50% / 20%;
+
+            .title {
+                text-align: center;
+                margin: 2rem 0;
+            }
+
+            .line {
+                height: 3px;
+                background-color: black;
+                width: 80%;
+                margin: getSpacing(2) auto;
+            }
+
+            .text {
+                text-align: center;
+            }
+        }
+    }
+}

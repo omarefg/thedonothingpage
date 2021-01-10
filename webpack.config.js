@@ -69,7 +69,7 @@ module.exports = {
         exclude: /\.module\.(s*)css$/,
       },
       {
-        test: /\.(png|gif|jpg|jpeg|webp|ttf|eot|woff|woff2|svg)$/,
+        test: /\.(png|gif|jpg|jpeg|webp|ttf|eot|woff|woff2|svg|webp)$/,
         use: [
           {
             loader: 'url-loader',
