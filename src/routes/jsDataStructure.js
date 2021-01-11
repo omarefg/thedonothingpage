@@ -77,17 +77,17 @@ export default [
     id: 7,
   },
   {
-    path: graphsPath,
-    title: graphsTitle,
-    father: 1,
-    element: Graphs,
-    id: 8,
-  },
-  {
     path: treesPath,
     title: treesTitle,
     father: 1,
     element: Trees,
     id: 9,
+  },
+  {
+    path: graphsPath,
+    title: graphsTitle,
+    father: 1,
+    element: Graphs,
+    id: 8,
   },
 ];
