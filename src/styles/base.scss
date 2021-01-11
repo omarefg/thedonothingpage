@@ -21,3 +21,8 @@ details summary::-webkit-details-marker {
 .active-li {
     background-color: $colorActiveLiColor;
 }
+
+.default-spacing {
+    margin: inherit;
+    padding: inherit;
+}

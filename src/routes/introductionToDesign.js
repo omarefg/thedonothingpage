@@ -17,16 +17,16 @@ const colorTitle = 'Color';
 const compositionPath = () => '/introduccion-al-diseno/composicion';
 const compositionTitle = 'Composición';
 
-const designPrinciplesPath = () => '/introduccion-al-diseno/principios-del-diseño';
+const designPrinciplesPath = () => '/introduccion-al-diseno/principios-del-diseno';
 const designPrinciplesTitle = 'Principios del diseño';
 
 const digitalImagePath = () => '/introduccion-al-diseno/imagen-digital';
 const digitalImageTitle = 'Imagen Digital';
 
-const diProjectPath = () => '/introduccion-al-diseno/proyectos-de-fundamentos-de-diseño';
+const diProjectPath = () => '/introduccion-al-diseno/proyectos-de-fundamentos-de-diseno';
 const diProjectTitle = 'Proyectos de Fundamentos de Diseño';
 
-const diRoutesPath = () => '/introduccion-al-diseno/rutas-profesionales-en-diseño';
+const diRoutesPath = () => '/introduccion-al-diseno/rutas-profesionales-en-diseno';
 const diRoutesTitle = 'Rutas Profesionales en Diseño';
 
 const formatsPath = () => '/introduccion-al-diseno/formatos';
@@ -36,7 +36,7 @@ const hierarchyPath = () => '/introduccion-al-diseno/jerarquia';
 const hierarchyTitle = 'Jerarquía';
 
 const introductionToDesignPath = () => '/introduccion-al-diseno/introduccion-al-diseno';
-const introductionToDesignTitle = 'Introducción al Diseño';
+const introductionToDesignTitle = 'Introducción al diseño';
 
 const tipographyPath = () => '/introduccion-al-diseno/tipografia';
 const tipographyTitle = 'Tipografía';
